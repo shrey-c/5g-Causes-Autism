@@ -21,7 +21,7 @@ public class Song {
 	
 	private String Song;
 	private String Artist;
-    private String Weather;
+    private String weather;
     
     public Song() {
 		super();
@@ -29,14 +29,14 @@ public class Song {
 	}
 	@Override
 	public String toString() {
-		return "Song [Id=" + Id + ", Song=" + Song + ",Artist=" + Artist + ", Weather=" + Weather + "]";
+		return "Song [Id=" + Id + ", Song=" + Song + ",Artist=" + Artist + ", Weather=" + weather + "]";
 	}
-	public Song(Long id, String song, String artist, String weather) {
+	public Song(Long id, String song, String artist, String weathe) {
 		super();
 		Id = id;
 		Song = song;
 		Artist= artist;
-		Weather = weather;
+		weather = weathe;
 	}
 	public Long getId() {
 		return Id;
@@ -58,10 +58,10 @@ public class Song {
 		Artist = artist;
 	}
 	public String getWeather() {
-		return Weather;
+		return weather;
 	}
-	public void setWeather(String weather) {
-		Weather = weather;
+	public void setWeather(String weathe) {
+		weather = weathe;
 	}
 	
 

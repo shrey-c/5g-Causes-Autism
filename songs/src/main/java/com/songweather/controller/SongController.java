@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
+import java.util.*;
 
 import org.slf4j.Logger;
 
 import com.songweather.entity.Song;
 import com.songweather.error.*;
 import com.songweather.service.*;
+import com.songweather.repository.*;
 
 
 @RestController
@@ -25,6 +26,9 @@ public class SongController {
 	
 	@Autowired
     private SongService songService;
+	
+	@Autowired
+    SongRepository songrepo;
 	
 	private final Logger LOGGER = LoggerFactory.getLogger(SongController.class);
 	
@@ -47,9 +51,16 @@ public class SongController {
         return songService.fetchSongById(Id);
     }
     
-//    @GetMapping("/Song/{weather}")
-//    public Song fetchSongByWeather(@PathVariable("weather") String Weather) throws SongNotFoundException{
-//        return songService.fetchSongByWeather(Weather);
-//    }
+    @GetMapping("/song/{weather}")
+    public List<Song> getSongByWeather(@PathVariable("weather") String weather) throws SongNotFoundException{
+    	List<Song> song= songrepo.findByWeather(weather);
+//    	if(!song.isPresent())
+//    	{
+//    		throw new SongNotFoundException("Song Not Available");
+//    	}
+    	
+    	return song;
+        //return songService.fetchSongByWeather(Weather);
+    }
 
 }

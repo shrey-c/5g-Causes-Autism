@@ -37,15 +37,15 @@ public class SongServiceImpl implements SongService{
         return song.get();
     }
 	
-//	@Override
+	//@Override
 //    public Song fetchSongByWeather(String weather) throws SongNotFoundException {
-//		Optional<Song> song =songRepository.findByWeather(weather);
+//		//Song song =songRepository.findByWeather(weather);
 //
-//       if(!song.isEmpty()) 	
-//        {
-//            throw new SongNotFoundException("Weather Not Available");
-//        }
-//        return song.get();
+////       if(!song.isEmpty()) 	
+////        {
+////            throw new SongNotFoundException("Weather Not Available");
+////        }
+//        return songRepository.findByWeather(weather);
 //    }
 //
 }
