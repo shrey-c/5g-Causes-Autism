@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("son")
 public class HelloController {
 	
 	@RequestMapping(value="/",method= RequestMethod.GET)

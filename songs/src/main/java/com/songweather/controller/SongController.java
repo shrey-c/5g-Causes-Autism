@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.LoggerFactory;
 
@@ -21,6 +22,7 @@ import com.songweather.repository.*;
 
 
 @RestController
+@RequestMapping("son")
 public class SongController {
 	
 	
@@ -54,10 +56,10 @@ public class SongController {
     @GetMapping("/song/{weather}")
     public List<Song> getSongByWeather(@PathVariable("weather") String weather) throws SongNotFoundException{
     	List<Song> song= songrepo.findByWeather(weather);
-//    	if(!song.isPresent())
-//    	{
-//    		throw new SongNotFoundException("Song Not Available");
-//    	}
+    	if(song.isEmpty())
+    	{
+    		throw new SongNotFoundException("Song Not Available");
+   	}
     	
     	return song;
         //return songService.fetchSongByWeather(Weather);

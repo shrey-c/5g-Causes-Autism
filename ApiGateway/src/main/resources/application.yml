@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: API_GATEWAY
+  cloud:
+    gateway:
+      routes:
+        
+        - id: SONGS
+          uri: http://localhost:8083/
+          predicates:
+            - Path=/son/**
+        - id: WEATHER
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/wea/**
+        - id: SERVICE
+          uri: http://localhost:8084/
+          predicates:
+            - Path=/ser/**
