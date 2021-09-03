@@ -33,17 +33,18 @@ public class ServiceController {
         return ser.saveservice(service);
     }
     
+    @GetMapping("/serviceendpoints")
+    public List<ServiceEntity> fetchregisteredservicesList(){
+        return ser.fetchregisteredservicesList();
+    }
+    
     @GetMapping("/serviceendpoints/{Id}")
     public ServiceEntity fetchRegisteredEndpointsById(@PathVariable("Id") String serviceEndpointsId) throws RegisteredEndpointsNotFoundException {
         return ser.fetchRegisteredEndpointsById(serviceEndpointsId);
     }
     
  // list of registered services we are returning
-    @GetMapping("/serviceendpoints")
-    public List<ServiceEntity> fetchregisteredservicesList(){
-        return ser.fetchregisteredservicesList();
-    }
-    
+ 
     // getting optimal service end point
 //    @GetMapping("serviceendpoints/{region}")
 //    public ServiceEntity fetchoptimalserviceendpoint(@PathVariable("region") String region){
