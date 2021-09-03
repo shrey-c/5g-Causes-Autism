@@ -1,91 +1,79 @@
-import React, { Component } from "react";
+import React from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { LogInPOST } from "../Constants";
 
-export default class LogIn extends Component {
-  render() {
-    return (
-      <form>
-        <h3>Service Registry</h3>
+export default function ServiceRegistry() {
+  function submit() {
+    const data = new FormData();
+    //data.append("file", this.state.selectedFile);
+    let url = LogInPOST;
 
-        <div className="form-group">
-          {/*<label>Select City</label>*/}
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Select City
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li>
-                <a class="dropdown-item" href="#">
-                  Bengaluru
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Delhi
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Mumbai
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Hyderabad
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <p></p>
-
-        <div className="form-group">
-          {/*<label>Select Region</label>*/}
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Select Region
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li>
-                <a class="dropdown-item" href="#">
-                  East
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  West
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  North
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  South
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <p></p>
-        <button type="submit" className="btn btn-primary btn-block">
-          Submit
-        </button>
-      </form>
-    );
+    axios
+      .post(url, data, {
+        // receive two parameter endpoint url ,form data
+      })
+      .then((res) => {
+        // then print response status
+        console.log(res);
+      });
   }
+
+  return (
+    <form>
+      <h3>Service Registry</h3>
+
+      <div className="form-group">
+        {/*<label>Select City</label>*/}
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Select City
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li>Bengaluru</li>
+            <li>Delhi</li>
+            <li>Mumbai</li>
+            <li>Hyderabad</li>
+          </ul>
+        </div>
+      </div>
+
+      <p></p>
+
+      <div className="form-group">
+        {/*<label>Select Region</label>*/}
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Select Region
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li>East</li>
+            <li>West</li>
+            <li>North</li>
+            <li>South</li>
+          </ul>
+        </div>
+      </div>
+      <p></p>
+      <button
+        type="submit"
+        className="btn btn-primary btn-block"
+        onClick={submit}
+      >
+        <Link to="/service-endpoint">Submit</Link>
+      </button>
+    </form>
+  );
 }
