@@ -31,6 +31,7 @@ public class Song {
 	public String toString() {
 		return "Song [Id=" + Id + ", Song=" + Song + ",Artist=" + Artist + ", Weather=" + weather + "]";
 	}
+	
 	public Song(Long id, String song, String artist, String weathe) {
 		super();
 		Id = id;
