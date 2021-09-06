@@ -1,6 +1,7 @@
 package com.telstra.service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,27 @@ public class WeatherServiceImpl implements WeatherService{
         }
         return weather.get();
     }
+	
+	@Override
+	public Weather updateWeather(Long weatherId, Weather weather) {
+		Weather weaDB = weatherRepository.findById(weatherId).get();
+		
+		if(Objects.nonNull(weather.getCity()) &&
+              !"".equalsIgnoreCase(weather.getCity())){
+          weaDB.setCity(weather.getCity());
+      }
+		
+		if(Objects.nonNull(weather.getWeather()))
+		{    weaDB.setWeather(weather.getWeather());
+	    }
+				
+		return weatherRepository.save(weaDB);
+	}
+
+	@Override
+	public void deleteWeatherById(Long weatherId) {
+		// TODO Auto-generated method stub
+		 weatherRepository.deleteById(weatherId);
+	}
 
 }

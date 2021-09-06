@@ -3,12 +3,14 @@ package com.songweather.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
@@ -45,6 +47,19 @@ public class SongController {
     @GetMapping("/songs")
     public List<Song> fetchWeatherList(){
         return songService.fetchSongList();
+    }
+    
+    //update by id
+    @PutMapping("/song/{id}")
+    public Song updateSong(@PathVariable("id") Long songId, @RequestBody Song song)
+    {
+    	return songService.updateSong(songId, song);
+    }
+    
+    @DeleteMapping("/song/{id}")
+    public String deleteSongById(@PathVariable("id") Long songId){
+           songService.deleteSongById(songId);
+           return "Song Deleted Successfully";
     }
     
     //get weather by id

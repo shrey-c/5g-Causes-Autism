@@ -14,7 +14,23 @@ public class CustomOath2User implements OAuth2User {
     String providerName;
 
 
-    public CustomOath2User(OAuth2User oauth2User, String providerName) {
+    public OAuth2User getOauth2User() {
+		return oauth2User;
+	}
+
+	public void setOauth2User(OAuth2User oauth2User) {
+		this.oauth2User = oauth2User;
+	}
+
+	public String getProviderName() {
+		return providerName;
+	}
+
+	public void setProviderName(String providerName) {
+		this.providerName = providerName;
+	}
+
+	public CustomOath2User(OAuth2User oauth2User, String providerName) {
         this.oauth2User = oauth2User;
         this.providerName = providerName;
     }

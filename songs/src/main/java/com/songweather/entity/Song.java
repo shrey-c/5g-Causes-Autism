@@ -9,8 +9,8 @@ import javax.persistence.*;
 
 @Entity  //class is entity and map to table
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
 @Builder
 
 public class Song {

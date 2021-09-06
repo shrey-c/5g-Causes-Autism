@@ -18,9 +18,9 @@ public interface SongService {
 	
 	//public Song fetchSongByWeather(String weather) throws SongNotFoundException;
 
+	public Song updateSong(Long songId, Song song);
 
-	
-	
+	public void deleteSongById(Long songId);
 
 
 }

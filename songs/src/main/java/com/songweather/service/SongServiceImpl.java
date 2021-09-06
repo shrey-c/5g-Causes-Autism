@@ -1,6 +1,7 @@
 package com.songweather.service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,34 @@ public class SongServiceImpl implements SongService{
         }
         return song.get();
     }
+	
+	@Override
+	public Song updateSong(Long songId, Song song) {
+		// TODO Auto-generated method stub
+        Song sonDB = songRepository.findById(songId).get();
+		
+		if(Objects.nonNull(song.getSong()) &&
+              !"".equalsIgnoreCase(song.getSong())){
+          sonDB.setSong(song.getSong());
+        }
+		
+		if(Objects.nonNull(song.getArtist()) &&
+	              !"".equalsIgnoreCase(song.getArtist()))
+		{    sonDB.setArtist(song.getArtist());
+	    }
+		
+		if(Objects.nonNull(song.getWeather()))
+		{    sonDB.setWeather(song.getWeather());
+	    }
+				
+		return songRepository.save(sonDB);
+	}
+	
+	@Override
+	public void deleteSongById(Long songId) {
+		// TODO Auto-generated method stub
+		 songRepository.deleteById(songId);
+	}
 	
 	//@Override
 //    public Song fetchSongByWeather(String weather) throws SongNotFoundException {

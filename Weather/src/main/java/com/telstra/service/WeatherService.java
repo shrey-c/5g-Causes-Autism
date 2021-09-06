@@ -16,8 +16,9 @@ public interface WeatherService {
 
 	public Weather fetchWeatherById(Long id) throws WeatherNotFoundException;
 
-	
-	
+	public Weather updateWeather(Long weatherId, Weather weather);
 
+	public void deleteWeatherById(Long weatherId);
+	
 
 }
