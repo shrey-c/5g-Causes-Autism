@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aafaeaee-1ceb-4b80-a77a-861bd42328f9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../5-edge-ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../5-edge-ui/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5-edge-ui/src/Containers/LogIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../5-edge-ui/src/Containers/LogIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5-edge-ui/src/Containers/ServiceRegistry.js" beforeDir="false" afterPath="$PROJECT_DIR$/../5-edge-ui/src/Containers/ServiceRegistry.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5-edge-ui/src/Containers/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/../5-edge-ui/src/Containers/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../songs/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../songs/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../songs/target/classes/META-INF/maven/com.song-weather/songs/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../songs/target/classes/META-INF/maven/com.song-weather/songs/pom.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1xZqSp4V9UYAcZjTfgEYK4i9AQe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aafaeaee-1ceb-4b80-a77a-861bd42328f9" name="Changes" comment="" />
+      <created>1630572961631</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1630572961631</updated>
+    </task>
+    <servers />
+  </component>
+</project>
