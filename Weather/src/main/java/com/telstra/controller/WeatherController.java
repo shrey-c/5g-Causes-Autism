@@ -29,7 +29,7 @@ public class WeatherController {
 	
 	//Post weather
 	@PostMapping("/weather")
-	public Weather saveWeather(@RequestBody Weather weather){
+	public List<Weather> saveWeather(@RequestBody List<Weather> weather){
 		return  weatherService.saveWeather(weather);
 		
 	}

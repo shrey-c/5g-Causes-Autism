@@ -29,7 +29,7 @@ public class ServiceController {
 
 	// save api will got to this url
 	@PostMapping("/serviceendpoints")
-	public ServiceEntity saveservice(@RequestBody ServiceEntity service) {
+	public List<ServiceEntity> saveservice(@RequestBody List<ServiceEntity> service) {
 
 		return ser.saveservice(service);
 	}

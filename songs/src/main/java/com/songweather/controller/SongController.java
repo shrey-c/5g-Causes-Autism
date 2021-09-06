@@ -38,7 +38,7 @@ public class SongController {
 	
 	//Post weather
 	@PostMapping("/song")
-	public Song saveSong(@RequestBody Song song){
+	public List<Song> saveSong(@RequestBody List<Song> song){
 		return  songService.saveSong(song);
 		
 	}
