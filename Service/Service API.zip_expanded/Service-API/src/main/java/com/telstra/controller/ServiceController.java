@@ -18,7 +18,7 @@ import com.telstra.service.service_1;
 import com.telstra.repository.*;
 
 @RestController
-@RequestMapping("ser")
+@RequestMapping("service-api")
 public class ServiceController {
 
 	@Autowired
@@ -39,7 +39,7 @@ public class ServiceController {
 		return ser.fetchregisteredservicesList();
 	}
 
-	@GetMapping("/serviceendpoints/{Id}")
+	@GetMapping("/serviceendpoints-id/{Id}")
 	public ServiceEntity fetchRegisteredEndpointsById(@PathVariable("Id") String serviceEndpointsId)
 			throws RegisteredEndpointsNotFoundException {
 		return ser.fetchRegisteredEndpointsById(serviceEndpointsId);
@@ -52,7 +52,7 @@ public class ServiceController {
 //    public ServiceEntity fetchoptimalserviceendpoint(@PathVariable("region") String region){
 //        return ser.fetchoptimalserviceendpoint(region);
 //    }
-	@GetMapping("/serviceendpoint/{direction}")
+	@GetMapping("/serviceendpoint-direction/{direction}")
 	public List<ServiceEntity> getSongByWeather(@PathVariable("direction") String direction)
 			throws RegisteredEndpointsNotFoundException {
 		List<ServiceEntity> song = serepo.findByDirection(direction);
@@ -65,12 +65,12 @@ public class ServiceController {
 	}
 
 	// update by id
-	@PutMapping("/serviceendpoints/{id}")
+	@PutMapping("/serviceendpoints-id/{id}")
 	public ServiceEntity updateService(@PathVariable("id") String serviceId, @RequestBody ServiceEntity serviceentity) {
 		return ser.updateService(serviceId, serviceentity);
 	}
 
-	@DeleteMapping("/serviceendpoints/{id}")
+	@DeleteMapping("/serviceendpoints-id/{id}")
 	public String deleteServiceById(@PathVariable("id") String serviceId) {
 		ser.deleteServiceById(serviceId);
 		return "Service Deleted Successfully";

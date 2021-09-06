@@ -24,7 +24,7 @@ import com.songweather.repository.*;
 
 
 @RestController
-@RequestMapping("son")
+@RequestMapping("song-api")
 public class SongController {
 	
 	
@@ -44,31 +44,31 @@ public class SongController {
 	}
 	
 	// list of weather we are returning from service
-    @GetMapping("/songs")
+    @GetMapping("/song")
     public List<Song> fetchWeatherList(){
         return songService.fetchSongList();
     }
     
     //update by id
-    @PutMapping("/song/{id}")
+    @PutMapping("/song-id/{id}")
     public Song updateSong(@PathVariable("id") Long songId, @RequestBody Song song)
     {
     	return songService.updateSong(songId, song);
     }
     
-    @DeleteMapping("/song/{id}")
+    @DeleteMapping("/song-id/{id}")
     public String deleteSongById(@PathVariable("id") Long songId){
            songService.deleteSongById(songId);
            return "Song Deleted Successfully";
     }
     
     //get weather by id
-    @GetMapping("/Song/{id}")
+    @GetMapping("/song-id/{id}")
     public Song fetchSongById(@PathVariable("id") Long Id) throws SongNotFoundException{
         return songService.fetchSongById(Id);
     }
     
-    @GetMapping("/song/{weather}")
+    @GetMapping("/songweather/{weather}")
     public List<Song> getSongByWeather(@PathVariable("weather") String weather) throws SongNotFoundException{
     	List<Song> song= songrepo.findByWeather(weather);
     	if(song.isEmpty())

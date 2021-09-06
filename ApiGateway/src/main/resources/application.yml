@@ -11,12 +11,12 @@ spring:
         - id: SONGS
           uri: http://localhost:8083/
           predicates:
-            - Path=/son/**
+            - Path=/song-api/**
         - id: WEATHER
           uri: http://localhost:8082/
           predicates:
-            - Path=/wea/**
+            - Path=/weather-api/**
         - id: SERVICE
           uri: http://localhost:8084/
           predicates:
-            - Path=/ser/**
+            - Path=/service-api/**

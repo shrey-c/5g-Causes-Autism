@@ -21,7 +21,7 @@ import com.telstra.error.WeatherNotFoundException;
 import com.telstra.service.WeatherService;
 
 @RestController
-@RequestMapping("wea")
+@RequestMapping("weather-api")
 public class WeatherController{
 	
 	@Autowired
