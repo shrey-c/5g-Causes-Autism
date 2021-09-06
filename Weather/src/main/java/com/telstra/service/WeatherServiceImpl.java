@@ -27,15 +27,18 @@ public class WeatherServiceImpl implements WeatherService{
         return weatherRepository.findAll();
     }
 	
+	//throws WeatherNotFoundException 
 	@Override
-    public Weather fetchWeatherById(Long Id) throws WeatherNotFoundException {
-        Optional<Weather> weather = weatherRepository.findById(Id);
+    public Weather fetchWeatherById(Long Id){
+       // Optional<Weather> weather = weatherRepository.findById(Id);
 
-        if(!weather.isPresent())
-        {
-            throw new WeatherNotFoundException("Weather Not Available");
-        }
-        return weather.get();
+//        if(!weather.isPresent())
+//        {
+//            throw new WeatherNotFoundException("Weather Not Available");
+//        }
+		
+        //return weather.get();
+		return weatherRepository.findById(Id).get();
     }
 	
 	@Override

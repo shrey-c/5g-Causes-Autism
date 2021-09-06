@@ -1,6 +1,7 @@
 package com.telstra.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.LoggerFactory;
 
@@ -20,10 +22,11 @@ import com.telstra.service.WeatherService;
 
 @RestController
 @RequestMapping("wea")
-public class WeatherController {
+public class WeatherController{
 	
 	@Autowired
     private WeatherService weatherService;
+	
 	
 	private final Logger LOGGER = LoggerFactory.getLogger(WeatherController.class);
 	
@@ -41,8 +44,9 @@ public class WeatherController {
     }
     
     //get weather by id
+    //throws WeatherNotFoundException
     @GetMapping("/weather/{id}")
-    public Weather fetchWeatherById(@PathVariable("id") Long Id) throws WeatherNotFoundException{
+    public Weather fetchWeatherById(@PathVariable("id") Long Id){
         return weatherService.fetchWeatherById(Id);
     }
     
@@ -57,6 +61,17 @@ public class WeatherController {
            weatherService.deleteWeatherById(weatherId);
            return "Weather Deleted Successfully";
     }
+
+//    //, method=RequestMethod.GET
+//    @RequestMapping(value=PATH, method=RequestMethod.GET)
+//    public String DefaultErrorMessage() {
+//    	return "Requested Resource is not Found!";
+//    }
+//	@Override
+//	public String getErrorPath() {
+//		// TODO Auto-generated method stub
+//		return PATH;
+//	}
 	
 
 }
