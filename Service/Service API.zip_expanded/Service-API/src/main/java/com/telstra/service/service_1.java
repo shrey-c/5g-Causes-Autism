@@ -16,5 +16,8 @@ public interface service_1 {
 	public List<ServiceEntity> fetchregisteredservicesList();
 
 	//public ServiceEntity fetchoptimalserviceendpoint(String region);
+	public ServiceEntity updateService(String serviceId, ServiceEntity serviceentity);
+
+	public void deleteServiceById(String serviceId);
 
 }

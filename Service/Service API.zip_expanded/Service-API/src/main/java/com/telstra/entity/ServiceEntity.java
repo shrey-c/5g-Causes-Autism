@@ -13,7 +13,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @Builder
 public class ServiceEntity {
 	
