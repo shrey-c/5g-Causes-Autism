@@ -10,7 +10,7 @@ import com.songweather.error.SongNotFoundException;
 @Service
 public interface SongService {
 
-	public Song saveSong(Song Song);
+	public List<Song> saveSong(List<Song> Song);
 
 	public List<Song> fetchSongList();
 

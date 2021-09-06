@@ -18,8 +18,8 @@ public class SongServiceImpl implements SongService{
     private SongRepository songRepository;
 	
 	@Override
-    public Song saveSong(Song song) {
-        return songRepository.save(song);
+    public List<Song> saveSong(List<Song> song) {
+        return songRepository.saveAll(song);
     }
 	
 	@Override

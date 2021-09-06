@@ -9,7 +9,7 @@ import com.telstra.error.RegisteredEndpointsNotFoundException;
 @Service
 public interface service_1 {
 
-	public ServiceEntity saveservice(ServiceEntity service);
+	public List<ServiceEntity> saveservice(List<ServiceEntity> service);
 
 	public ServiceEntity fetchRegisteredEndpointsById(String serviceEndpointsId) throws RegisteredEndpointsNotFoundException;
 

@@ -20,9 +20,9 @@ public class ServiceImpl implements service_1{
     private ServiceRepository serviceRepository;
 
 	@Override
-	public ServiceEntity saveservice(ServiceEntity service) {
+	public List<ServiceEntity> saveservice(List<ServiceEntity> service) {
 		// TODO Auto-generated method stub
-		return serviceRepository.save(service);
+		return serviceRepository.saveAll(service);
 	}
 
 	@Override

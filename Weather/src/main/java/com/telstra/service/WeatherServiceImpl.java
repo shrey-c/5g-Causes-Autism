@@ -18,8 +18,8 @@ public class WeatherServiceImpl implements WeatherService{
     private WeatherRepository weatherRepository;
 	
 	@Override
-    public Weather saveWeather(Weather weather) {
-        return weatherRepository.save(weather);
+    public List<Weather> saveWeather (List<Weather> weather) {
+        return weatherRepository.saveAll(weather);
     }
 	
 	@Override
