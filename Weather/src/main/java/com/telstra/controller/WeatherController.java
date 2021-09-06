@@ -23,55 +23,55 @@ import com.telstra.service.WeatherService;
 @RestController
 @RequestMapping("weather-api")
 public class WeatherController{
-	
+
 	@Autowired
-    private WeatherService weatherService;
-	
-	
+	private WeatherService weatherService;
+
+
 	private final Logger LOGGER = LoggerFactory.getLogger(WeatherController.class);
-	
+
 	//Post weather
 	@PostMapping("/weather")
 	public List<Weather> saveWeather(@RequestBody List<Weather> weather){
 		return  weatherService.saveWeather(weather);
-		
-	}
-	
-	// list of weather we are returning from service
-    @GetMapping("/weather")
-    public List<Weather> fetchWeatherList(){
-        return weatherService.fetchWeatherList();
-    }
-    
-    //get weather by id
-    //throws WeatherNotFoundException
-    @GetMapping("/weather/{id}")
-    public Weather fetchWeatherById(@PathVariable("id") Long Id){
-        return weatherService.fetchWeatherById(Id);
-    }
-    
-    @PutMapping("/weather/{id}")
-    public Weather updateWeather(@PathVariable("id") Long weatherId, @RequestBody Weather weather)
-    {
-    	return weatherService.updateWeather(weatherId, weather);
-    }
-    
-    @DeleteMapping("/weather/{id}")
-    public String deleteWeatherById(@PathVariable("id") Long weatherId){
-           weatherService.deleteWeatherById(weatherId);
-           return "Weather Deleted Successfully";
-    }
 
-//    //, method=RequestMethod.GET
-//    @RequestMapping(value=PATH, method=RequestMethod.GET)
-//    public String DefaultErrorMessage() {
-//    	return "Requested Resource is not Found!";
-//    }
-//	@Override
-//	public String getErrorPath() {
-//		// TODO Auto-generated method stub
-//		return PATH;
-//	}
-	
+	}
+
+	// list of weather we are returning from service
+	@GetMapping("/weather")
+	public List<Weather> fetchWeatherList(){
+		return weatherService.fetchWeatherList();
+	}
+
+	//get weather by id
+	//throws WeatherNotFoundException
+	@GetMapping("/weather/{id}")
+	public Weather fetchWeatherById(@PathVariable("id") Long Id){
+		return weatherService.fetchWeatherById(Id);
+	}
+
+	@PutMapping("/weather/{id}")
+	public Weather updateWeather(@PathVariable("id") Long weatherId, @RequestBody Weather weather)
+	{
+		return weatherService.updateWeather(weatherId, weather);
+	}
+
+	@DeleteMapping("/weather/{id}")
+	public String deleteWeatherById(@PathVariable("id") Long weatherId){
+		weatherService.deleteWeatherById(weatherId);
+		return "Weather Deleted Successfully";
+	}
+
+	//    //, method=RequestMethod.GET
+	//    @RequestMapping(value=PATH, method=RequestMethod.GET)
+	//    public String DefaultErrorMessage() {
+	//    	return "Requested Resource is not Found!";
+	//    }
+	//	@Override
+	//	public String getErrorPath() {
+	//		// TODO Auto-generated method stub
+	//		return PATH;
+	//	}
+
 
 }

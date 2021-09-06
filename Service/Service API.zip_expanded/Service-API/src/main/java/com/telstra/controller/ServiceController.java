@@ -52,7 +52,7 @@ public class ServiceController {
 //    public ServiceEntity fetchoptimalserviceendpoint(@PathVariable("region") String region){
 //        return ser.fetchoptimalserviceendpoint(region);
 //    }
-	@GetMapping("/serviceendpoint-direction/{direction}")
+	@GetMapping("/serviceendpoints-direction/{direction}")
 	public List<ServiceEntity> getSongByWeather(@PathVariable("direction") String direction)
 			throws RegisteredEndpointsNotFoundException {
 		List<ServiceEntity> song = serepo.findByDirection(direction);
