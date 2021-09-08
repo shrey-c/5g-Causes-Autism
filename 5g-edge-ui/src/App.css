@@ -101,3 +101,12 @@ h2 {
 .forgot-password a {
   color: #167bff;
 }
+
+.s-alert-box {
+  min-width: 250px;
+}
+
+.s-alert-close::before,
+.s-alert-close::after {
+  width: 2px;
+}

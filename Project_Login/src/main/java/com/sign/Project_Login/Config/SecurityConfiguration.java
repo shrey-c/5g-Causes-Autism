@@ -63,7 +63,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/portal/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/portal/**").authenticated()
-                .antMatchers("/", "/register", "/process_register", "/process_login","/login", "/logout")
+                .antMatchers("/", "/register", "/process_register", "/process_login", "/login", "/logout")
                 .permitAll().anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -90,7 +90,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        response.sendRedirect("http://localhost:3000");
+                        response.sendRedirect("http://localhost:3000/sign-in");
                     }
                 })
                 .failureHandler(new AuthenticationFailureHandler() {

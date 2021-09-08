@@ -65,7 +65,7 @@ public class LoginController {
             model.addAttribute("currentuser", curruser.getPrincipalName());
         }
 
-        return "service-registry";
+        return "dashboard";
     }
 
 

@@ -34,11 +34,19 @@ export const SongApiDELETE = "http://localhost:8083/song-api/song-id/{id}";
 
 //----------------------------LogIn and SignUp URIs----------------------------------------------//
 
-export const LogInGET = "http://localhost:3030/login";
-export const LogInPOST = "http://localhost:3030/process_login";
-export const UseGET = "http://localhost:3030/use";
-export const SignUpGET = "http://localhost:3030/register";
-export const SignUpPOST = "http://localhost:3030/process_register";
+export const API_BASE_URL = "http://localhost:8089";
+export const ACCESS_TOKEN = "accessToken";
+
+export const OAUTH2_REDIRECT_URI = "http://localhost:3000/oauth2/redirect";
+
+export const GOOGLE_AUTH_URL =
+  API_BASE_URL + "/oauth2/authorize/google?redirect_uri=" + OAUTH2_REDIRECT_URI;
+export const FACEBOOK_AUTH_URL =
+  API_BASE_URL +
+  "/oauth2/authorize/facebook?redirect_uri=" +
+  OAUTH2_REDIRECT_URI;
+export const GITHUB_AUTH_URL =
+  API_BASE_URL + "/oauth2/authorize/github?redirect_uri=" + OAUTH2_REDIRECT_URI;
 
 //----------------------------Swagger UI URIs----------------------------------------------//
 
@@ -49,29 +57,33 @@ export const SwaggerUiService = "http://localhost:8084/v2/api-docs";
 //----------------------------Other----------------------------------------------//
 
 export const CityOptions = [
-  { key: "af", value: "Afghanistan", flag: "af", text: "Afghanistan" },
-  { key: "ax", value: "ax", flag: "ax", text: "Aland Islands" },
-  { key: "al", value: "al", flag: "al", text: "Albania" },
-  { key: "dz", value: "dz", flag: "dz", text: "Algeria" },
-  { key: "as", value: "as", flag: "as", text: "American Samoa" },
-  { key: "ad", value: "Andorra", flag: "ad", text: "Andorra" },
-  { key: "ao", value: "ao", flag: "ao", text: "Angola" },
-  { key: "ai", value: "ai", flag: "ai", text: "Anguilla" },
-  { key: "ag", value: "ag", flag: "ag", text: "Antigua" },
-  { key: "ar", value: "ar", flag: "ar", text: "Argentina" },
-  { key: "am", value: "am", flag: "am", text: "Armenia" },
-  { key: "aw", value: "aw", flag: "aw", text: "Aruba" },
-  { key: "au", value: "au", flag: "au", text: "Australia" },
-  { key: "at", value: "at", flag: "at", text: "Austria" },
-  { key: "az", value: "az", flag: "az", text: "Azerbaijan" },
-  { key: "bs", value: "bs", flag: "bs", text: "Bahamas" },
-  { key: "bh", value: "bh", flag: "bh", text: "Bahrain" },
-  { key: "bd", value: "bd", flag: "bd", text: "Bangladesh" },
-  { key: "bb", value: "bb", flag: "bb", text: "Barbados" },
-  { key: "by", value: "by", flag: "by", text: "Belarus" },
-  { key: "be", value: "be", flag: "be", text: "Belgium" },
-  { key: "bz", value: "bz", flag: "bz", text: "Belize" },
-  { key: "bj", value: "bj", flag: "bj", text: "Benin" },
+  { key: "af", value: "Port Blair", text: "Port Blair" },
+  { key: "ax", value: "Amaravati", text: "Amaravati" },
+  { key: "al", value: "Kolkata", text: "Kolkata" },
+  { key: "dz", value: "Lucknow", text: "Lucknow" },
+  { key: "as", value: "Patna", text: "Patna" },
+  { key: "ad", value: "Daman", text: "Daman" },
+  { key: "ao", value: "Chandigarh", text: "Chandigarh" },
+  { key: "ai", value: "New Delhi", text: "New Delhi" },
+  { key: "ag", value: "Gandhinagar", text: "Gandhinagar" },
+  { key: "ar", value: "Shimla", text: "Shimla" },
+  { key: "am", value: "Bangalore", text: "Bangalore" },
+  {
+    key: "aw",
+    value: "Thiruvananthapuram",
+    text: "Thiruvananthapuram",
+  },
+  { key: "au", value: "Leh", text: "Leh" },
+  { key: "at", value: "Kavaratti", text: "Kavaratti" },
+  { key: "az", value: "Mumbai", text: "Mumbai" },
+  { key: "bs", value: "Shillong", text: "Shillong" },
+  { key: "bh", value: "Puducherry", text: "Puducherry" },
+  { key: "bd", value: "Jaipur", text: "Jaipur" },
+  { key: "bb", value: "Gangtok", text: "Gangtok" },
+  { key: "by", value: "Hyderabad", text: "Hyderabad" },
+  { key: "be", value: "Chennai", text: "Chennai" },
+  { key: "bz", value: "Agartala", text: "Agartala" },
+  { key: "bj", value: "Kohima", text: "Kohima" },
 ];
 
 export const ServerOptions = [
