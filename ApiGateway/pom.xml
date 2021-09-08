@@ -46,10 +46,6 @@
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
-		<properties>
-			<sonar.organization>shrey-c</sonar.organization>
-			<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		</properties>
 	</dependencyManagement>
 
 	<build>
