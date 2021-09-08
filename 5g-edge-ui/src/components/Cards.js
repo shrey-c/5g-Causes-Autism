@@ -5,15 +5,19 @@ import CardItem from "./CardItem";
 function Cards() {
   return (
     <div className="cards">
-      <h1>Why 5G Edge Computing?</h1>
+      <h1>Why 5G Edge Service Discovery?</h1>
       <br />
       <p>
-        5G and edge computing are two inextricably linked technologies: they are
-        both poised to significantly improve the performance of applications and
-        enable huge amounts of data to be processed in real-time. 5G increases
-        speeds by up to ten times that of 4G, whereas mobile edge computing
-        reduces latency by bringing compute capabilities into the network,
-        closer to the end user.
+        You develop Multi-access Edge Computing (MEC) applications because you
+        want the lowest latency and highest throughput between your client
+        devices and your Edge services. There's more to it, though, than just
+        deploying some of your application services to Edge locations and hoping
+        devices connect to the right ones. The Edge location that is
+        geographically closest to a client device may not be the optimal
+        endpoint for a variety of reasons. The Edge Discovery Service takes into
+        account the current location of a device, its IP anchor location,
+        current network traffic, and other factors to determine which 5G Edge
+        platform a device should connect to.
       </p>
       <div className="cards__container">
         <div className="cards__wrapper">

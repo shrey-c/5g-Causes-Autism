@@ -1,69 +1,69 @@
-import React from "react";
+import React, { Component } from "react";
 import "../../App.css";
 import { Link } from "react-router-dom";
+import { Dropdown } from "semantic-ui-react";
+import { CityOptions, ServerOptions } from "../../Constants";
 
-export default function ServicerRegistry() {
-  return (
-    <div className="auth-wrapper">
-      <div className="auth-inner">
-        <form>
-          <h3>Service Registry</h3>
+export default class ServicerRegistry extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cityValue: "",
+      regionValue: "",
+    };
+  }
 
-          <div className="form-group">
-            {/*<label>Select City</label>*/}
-            <div class="dropdown">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Select City
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li>Bengaluru</li>
-                <li>Delhi</li>
-                <li>Mumbai</li>
-                <li>Hyderabad</li>
-              </ul>
+  handleCityDropdown = (event, data) => {
+    this.setState({ cityValue: data.value });
+  };
+
+  handleRegionDropdown = (event, data) => {
+    this.setState({ regionValue: data.value });
+  };
+
+  render() {
+    return (
+      <div className="auth-wrapper">
+        <div className="auth-inner">
+          <form>
+            <h2>Please Confirm your Region</h2>
+
+            <div className="form-group">
+              <p>Select the your location: </p>
+              <Dropdown
+                placeholder="Select City"
+                fluid
+                search
+                selection
+                clearable
+                options={CityOptions}
+                onChange={this.handleCityDropdown}
+              />
+              <br />
+              <p>Select the region: </p>
+              <Dropdown
+                placeholder="Select Region"
+                fluid
+                selection
+                clearable
+                options={ServerOptions}
+                onChange={this.handleRegionDropdown}
+              />
             </div>
-          </div>
-
-          <p></p>
-
-          <div className="form-group">
-            {/*<label>Select Region</label>*/}
-            <div class="dropdown">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Select Region
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li>East</li>
-                <li>West</li>
-                <li>North</li>
-                <li>South</li>
-              </ul>
-            </div>
-          </div>
-          <p></p>
-          <Link to="/service-endpoint">
-            <button
-              type="submit"
-              className="btn btn-primary btn-block"
-              //onClick={submit}
+            <br />
+            <Link
+              to={{
+                pathname: "/service-selected",
+                state: this.state.regionValue,
+              }}
             >
-              Submit
-            </button>
-          </Link>
-        </form>
+              <button type="submit" className="btn btn-primary btn-block">
+                Submit
+              </button>
+            </Link>
+          </form>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }

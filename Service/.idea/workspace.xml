@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67a85bfe-7eb2-4645-acbb-4ef95872ac1f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../5-edge-ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../5-edge-ui/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../5-edge-ui/src/Containers/LogIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../5-edge-ui/src/Containers/LogIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../5-edge-ui/src/Containers/ServiceRegistry.js" beforeDir="false" afterPath="$PROJECT_DIR$/../5-edge-ui/src/Containers/ServiceRegistry.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../5-edge-ui/src/Containers/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/../5-edge-ui/src/Containers/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../songs/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../songs/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../songs/target/classes/META-INF/maven/com.song-weather/songs/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../songs/target/classes/META-INF/maven/com.song-weather/songs/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Songs/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Songs/target/classes/META-INF/maven/com.song-weather/songs/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Songs/target/classes/META-INF/maven/com.song-weather/songs/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/SongsApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/SongsApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/controller/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/controller/HelloController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/controller/SongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/controller/SongController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/entity/Song.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/entity/Song.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/error/SongNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/error/SongNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/repository/SongRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/repository/SongRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/service/SongService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/service/SongService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/service/SongServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Songs/target/classes/com/songweather/service/SongServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Songs/target/test-classes/com/songweather/songs/SongsApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Songs/target/test-classes/com/songweather/songs/SongsApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

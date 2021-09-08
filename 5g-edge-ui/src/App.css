@@ -65,11 +65,24 @@ html,
   box-shadow: none;
 }
 
-.auth-wrapper h3 {
+.auth-wrapper p {
+  text-align: left;
+}
+
+.auth-wrapper h3,
+h2 {
   text-align: center;
   margin: 0;
   line-height: 1;
   padding-bottom: 20px;
+}
+
+.auth-inner-form {
+  text-align: center;
+}
+
+.auth-inner-form p {
+  text-align: center;
 }
 
 .custom-control-label {

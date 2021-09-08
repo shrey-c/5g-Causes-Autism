@@ -9,12 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
+@CrossOrigin(origins = "http://localhost:3000")
 public class LoginController {
 
     @Autowired
@@ -32,7 +35,7 @@ public class LoginController {
     }
 
     @PostMapping("/process_register")
-    public String processregistration(User user) throws Exception {
+    public String processregistration(@RequestBody User user) throws Exception {
         controllerServices.processregistration(user);
             return "SuccessfulRegistration";
 
@@ -62,7 +65,7 @@ public class LoginController {
             model.addAttribute("currentuser", curruser.getPrincipalName());
         }
 
-        return "dashboard";
+        return "service-registry";
     }
 
 
