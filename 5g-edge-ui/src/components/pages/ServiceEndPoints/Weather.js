@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "../../App.css";
+import "../../../App.css";
 import SwaggerUi, { presets } from "swagger-ui";
 import "swagger-ui/dist/swagger-ui.css";
-import { SwaggerUiSong } from "../../Constants";
+import { SwaggerUiWeather } from "../../../Constants";
 
 //export default function ServiceEndPoints() {
 //  React.useEffect(() => {
@@ -30,11 +30,11 @@ import { SwaggerUiSong } from "../../Constants";
 //  );
 //}
 
-class SwaggerTest extends Component {
+class Weather extends Component {
   componentDidMount() {
     SwaggerUi({
       dom_id: "#swaggerContainer",
-      url: SwaggerUiSong,
+      url: SwaggerUiWeather,
       presets: [presets.apis],
     });
   }
@@ -44,4 +44,4 @@ class SwaggerTest extends Component {
   }
 }
 
-export default SwaggerTest;
+export default Weather;

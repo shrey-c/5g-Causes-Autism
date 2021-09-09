@@ -47,7 +47,9 @@ import Home from "./components/pages/Home";
 import Login from "./user/login/Login";
 import Signup from "./user/signup/Signup";
 import Profile from "./user/profile/Profile";
-import ServiceEndPoints from "./components/pages/ServiceEndPoints";
+import Song from "./components/pages/ServiceEndPoints/Song";
+import Weather from "./components/pages/ServiceEndPoints/Weather";
+import Service from "./components/pages/ServiceEndPoints/Service";
 import ServicerRegistry from "./components/pages/ServicerRegistry";
 import ServiceSelected from "./components/pages/ServerSelected";
 import OAuth2RedirectHandler from "./user/oauth2/OAuth2RedirectHandler";
@@ -127,7 +129,9 @@ class App extends Component {
               <Home {...props} authenticated={this.state.authenticated} />
             )}
           ></Route>
-          <Route path="/service-endpoint" component={ServiceEndPoints} />
+          <Route path="/service-endpoint-weather" component={Weather} />
+          <Route path="/service-endpoint-song" component={Song} />
+          <Route path="/service-endpoint-service" component={Service} />
           <Route path="/service-registry" component={ServicerRegistry} />
           <Route path="/service-selected" component={ServiceSelected} />
           <PrivateRoute
