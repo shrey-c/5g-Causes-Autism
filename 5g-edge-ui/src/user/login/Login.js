@@ -133,6 +133,7 @@ class LoginForm extends Component {
         this.forceUpdate();
         Alert.success("You're successfully logged in!");
         this.props.history.push("/");
+        window.location.reload();
       })
       .catch((error) => {
         Alert.error(
