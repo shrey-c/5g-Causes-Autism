@@ -1,69 +1,5 @@
 version: "3.3"
 services:
-  songs:
-    build:
-      dockerfile: Songs/Dockerfile
-      context: .
-    volumes:
-      - ./Songs:/myapp
-    ports:
-      - "8083:8083"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://songdb:3306/songdb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://demo:8761/eureka
-    links: 
-      - demo
-      - songdb
-
-  weather:
-    build:
-      dockerfile: Weather/Dockerfile
-      context: .
-    volumes:
-      - ./Weather:/myapp
-    ports:
-      - "8082:8082"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://tlsdb:3306/tlsdb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://demo:8761/eureka
-    links: 
-      - demo
-      - tlsdb
-    
-  weather:
-    build:
-      dockerfile: Weather/Dockerfile
-      context: .
-    volumes:
-      - ./Weather:/myapp
-    ports:
-      - "8082:8082"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://tlsdb:3306/tlsdb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://demo:8761/eureka
-    links: 
-      - demo
-      - tlsdb
-
-
- #think about react dependence
-  songdb:
-    image: mysql:latest
-    cap_add:
-      - SYS_NICE  # CAP_SYS_NICE
-    security_opt:
-      - seccomp:unconfined
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: "songdb"
-      MYSQL_USER: "admin"
-      MYSQL_PASSWORD: "root"
-
-    restart: always
-    volumes:
-      - ./Songs/tmp/mysqldb:/var/lib/mysql
-    ports:
-      - "3366:3306"
 
   demo:
     build:
@@ -71,38 +7,110 @@ services:
       context: .
     ports:
       - "8762:8761"
-  
-  tlsdb:
-    image: mysql:latest
-    cap_add:
-      - SYS_NICE  # CAP_SYS_NICE
-    security_opt:
-      - seccomp:unconfined
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: "tlsdb"
-      MYSQL_USER: "admin"
-      MYSQL_PASSWORD: "root"
-    volumes:
-      - ./Weather/tmp/mysqldb:/var/lib/mysql
-    ports:
-      - "3376:3306"
 
-  tlsdb:
-    image: mysql:latest
-    cap_add:
-      - SYS_NICE  # CAP_SYS_NICE
-    security_opt:
-      - seccomp:unconfined
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: "tlsdb"
-      MYSQL_USER: "admin"
-      MYSQL_PASSWORD: "root"
-    volumes:
-      - ./Weather/tmp/mysqldb:/var/lib/mysql
+  gateway:
+    build:
+      dockerfile: ApiGateway/Dockerfile
+      context: .
     ports:
-      - "3376:3306"
+      - "8081:8080"
+    links: 
+      - demo
+
+  # songs:
+  #   build:
+  #     dockerfile: Songs/Dockerfile
+  #     context: .
+  #   volumes:
+  #     - ./Songs:/myapp
+  #   ports:
+  #     - "8083:8083"
+  #   environment:
+  #     SPRING_DATASOURCE_URL: jdbc:mysql://songdb:3306/songdb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+  #     EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://demo:8761/eureka
+  #   links: 
+  #     - demo
+  #     - songdb
+
+  # weather:
+  #   build:
+  #     dockerfile: Weather/Dockerfile
+  #     context: .
+  #   volumes:
+  #     - ./Weather:/myapp
+  #   ports:
+  #     - "8082:8082"
+  #   environment:
+  #     SPRING_DATASOURCE_URL: jdbc:mysql://tlsdb:3306/tlsdb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+  #     EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://demo:8761/eureka
+  #   links: 
+  #     - demo
+  #     - tlsdb
+    
+  # endpoints:
+  #   build:
+  #     dockerfile: Service-API/Dockerfile
+  #     context: .
+  #   volumes:
+  #     - ./Service-API:/myapp
+  #   ports:
+  #     - "8087:8084"
+  #   environment:
+  #     SPRING_DATASOURCE_URL: jdbc:mysql://servicedb:3306/servicedb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+  #     EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://demo:8761/eureka
+  #   links: 
+  #     - demo
+  #     - servicedb
+
+ #think about react dependence
+  # songdb:
+  #   image: mysql:latest
+  #   cap_add:
+  #     - SYS_NICE  # CAP_SYS_NICE
+  #   security_opt:
+  #     - seccomp:unconfined
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_DATABASE: "songdb"
+  #     MYSQL_USER: "admin"
+  #     MYSQL_PASSWORD: "root"
+  #   restart: always
+  #   volumes:
+  #     - ./Songs/tmp/mysqldb:/var/lib/mysql
+  #   ports:
+  #     - "3366:3306"
+  
+  # tlsdb:
+  #   image: mysql:latest
+  #   cap_add:
+  #     - SYS_NICE  # CAP_SYS_NICE
+  #   security_opt:
+  #     - seccomp:unconfined
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_DATABASE: "tlsdb"
+  #     MYSQL_USER: "admin"
+  #     MYSQL_PASSWORD: "root"
+  #   volumes:
+  #     - ./Weather/tmp/mysqldb:/var/lib/mysql
+  #   ports:
+  #     - "3376:3306"
+
+  # servicedb:
+  #   image: mysql:latest
+  #   cap_add:
+  #     - SYS_NICE  # CAP_SYS_NICE
+  #   security_opt:
+  #     - seccomp:unconfined
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_DATABASE: "servicedb"
+  #     MYSQL_USER: "admin"
+  #     MYSQL_PASSWORD: "root"
+  #   volumes:
+  #     - ./Service-API/tmp/mysqldb:/var/lib/mysql
+  #   ports:
+  #     - "3396:3306"
 
       
  

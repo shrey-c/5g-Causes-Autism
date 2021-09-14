@@ -1,9 +1,7 @@
-FROM java:11
+FROM openjdk:11
 
 EXPOSE 8080
 
-WORKDIR /app
-
-COPY target/customer-service-0.0.1-SNAPSHOT.jar .
+COPY ApiGateway/target/ApiGateway-0.0.1-SNAPSHOT.jar ApiGateway-0.0.1-SNAPSHOT.jar
 
 ENTRYPOINT ["java", "-jar", "ApiGateway-0.0.1-SNAPSHOT.jar"]
