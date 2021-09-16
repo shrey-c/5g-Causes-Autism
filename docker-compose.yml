@@ -1,232 +1,276 @@
 version: "3.3"
 services:
 
+
+  edgeui:
+    build:
+      dockerfile: 5g-edge-ui/Dockerfile
+    ports:
+      - '3000:3000'
+    restart: always
+  # frontend:
+  #   build:
+  #     dockerfile: 5g-edge-ui/Dockerfile
+  #     context: .
+  #   ports:
+  #     - "3000:3000"
+  
   eureka-north:
     build:
       dockerfile: demo/Dockerfile
       context: .
     ports:
-      - "8762:8761"
+      - "8761:8761"
 
-  gateway:
-    build:
-      dockerfile: ApiGateway/Dockerfile
-      context: .
-    ports:
-      - "8090:8090"
-    environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-north:8761/eureka
-    links:
-      - eureka-north
+#   eureka-south:
+#     build:
+#       dockerfile: demo/Dockerfile
+#       context: .
+#     ports:
+#       - "8764:8761"
 
-  eureka-south:
-    build:
-      dockerfile: demo/Dockerfile
-      context: .
-    ports:
-      - "8764:8761"
+#   eureka-east:
+#     build:
+#       dockerfile: demo/Dockerfile
+#       context: .
+#     ports:
+#       - "8763:8761"
 
-  eureka-east:
-    build:
-      dockerfile: demo/Dockerfile
-      context: .
-    ports:
-      - "8763:8761"
+#   eureka-west:
+#     build:
+#       dockerfile: demo/Dockerfile
+#       context: .
+#     ports:
+#       - "8762:8761"
 
-  eureka-west:
-    build:
-      dockerfile: demo/Dockerfile
-      context: .
-    ports:
-      - "8765:8761"
+#   gateway:
+#     build:
+#       dockerfile: ApiGateway/Dockerfile
+#       context: .
+#     ports:
+#       - "8090:8090"
+#     environment:
+#       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-north:8761/eureka
+#     links:
+#       - eureka-north
 
-  songs:
-    build:
-      dockerfile: Songs/Dockerfile
-      context: .
-    volumes:
-      - ./Songs:/myapp
-    ports:
-      - "8083:8083"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://songdb:3306/songdb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-north:8761/eureka
-    links: 
-      - eureka-north
-      - songdb
+#   songs:
+#     build:
+#       dockerfile: Songs/Dockerfile
+#       context: .
+#     volumes:
+#       - ./Songs:/myapp
+#     ports:
+#       - "8083:8083"
+#     environment:
+#       SPRING_DATASOURCE_URL: jdbc:mysql://songdb:3306/songdb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+#       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-north:8761/eureka
+#     links: 
+#       - eureka-north
+#       - songdb
 
-  songs2:
-    build:
-      dockerfile: Songs/Dockerfile
-      context: .
-    volumes:
-      - ./Songs:/myapp
-    ports:
-      - "8093:8083"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://songdb:3306/songdb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-south:8761/eureka
-    links: 
-      - eureka-south
-      - songdb
+#   songs2:
+#     build:
+#       dockerfile: Songs/Dockerfile
+#       context: .
+#     volumes:
+#       - ./Songs:/myapp
+#     ports:
+#       - "8093:8083"
+#     environment:
+#       SPRING_DATASOURCE_URL: jdbc:mysql://songdb:3306/songdb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+#       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-south:8761/eureka
+#     links: 
+#       - eureka-south
+#       - songdb
 
-  weather:
-    build:
-      dockerfile: Weather/Dockerfile
-      context: .
-    volumes:
-      - ./Weather:/myapp
-    ports:
-      - "8082:8082"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://tlsdb:3306/tlsdb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-north:8761/eureka
-    links: 
-      - eureka-north
-      - tlsdb
+#   weather:
+#     build:
+#       dockerfile: Weather/Dockerfile
+#       context: .
+#     volumes:
+#       - ./Weather:/myapp
+#     ports:
+#       - "8082:8082"
+#     environment:
+#       SPRING_DATASOURCE_URL: jdbc:mysql://tlsdb:3306/tlsdb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+#       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-north:8761/eureka
+#     links: 
+#       - eureka-north
+#       - tlsdb
 
-  weather2:
-    build:
-      dockerfile: Weather/Dockerfile
-      context: .
-    volumes:
-      - ./Weather:/myapp
-    ports:
-      - "8092:8082"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://tlsdb:3306/tlsdb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-east:8761/eureka
-    links: 
-      - eureka-east
-      - tlsdb
+#   weather2:
+#     build:
+#       dockerfile: Weather/Dockerfile
+#       context: .
+#     volumes:
+#       - ./Weather:/myapp
+#     ports:
+#       - "8092:8082"
+#     environment:
+#       SPRING_DATASOURCE_URL: jdbc:mysql://tlsdb:3306/tlsdb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+#       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-east:8761/eureka
+#     links: 
+#       - eureka-east
+#       - tlsdb
     
-  endpoints:
-    build:
-      dockerfile: Service/Dockerfile
-      context: .
-    volumes:
-      - ./Service:/myapp
-    ports:
-      - "8084:8084"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://servicedb:3306/servicedb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-north:8761/eureka
-    links: 
-      - eureka-north
-      - servicedb
+#   endpoints:
+#     build:
+#       dockerfile: Service/Dockerfile
+#       context: .
+#     volumes:
+#       - ./Service:/myapp
+#     ports:
+#       - "8084:8084"
+#     environment:
+#       SPRING_DATASOURCE_URL: jdbc:mysql://servicedb:3306/servicedb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+#       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-north:8761/eureka
+#     links: 
+#       - eureka-north
+#       - servicedb
 
-  endpoints2:
-    build:
-      dockerfile: Service/Dockerfile
-      context: .
-    volumes:
-      - ./Service:/myapp
-    ports:
-      - "8074:8084"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://servicedb:3306/servicedb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-south:8761/eureka
-    links: 
-      - eureka-south
-      - servicedb
+#   endpoints2:
+#     build:
+#       dockerfile: Service/Dockerfile
+#       context: .
+#     volumes:
+#       - ./Service:/myapp
+#     ports:
+#       - "8074:8084"
+#     environment:
+#       SPRING_DATASOURCE_URL: jdbc:mysql://servicedb:3306/servicedb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+#       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-south:8761/eureka
+#     links: 
+#       - eureka-south
+#       - servicedb
 
-  endpoints3:
-    build:
-      dockerfile: Service/Dockerfile
-      context: .
-    volumes:
-      - ./Service:/myapp
-    ports:
-      - "8064:8084"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://servicedb:3306/servicedb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-east:8761/eureka
-    links: 
-      - eureka-east
-      - servicedb
+#   endpoints3:
+#     build:
+#       dockerfile: Service/Dockerfile
+#       context: .
+#     volumes:
+#       - ./Service:/myapp
+#     ports:
+#       - "8064:8084"
+#     environment:
+#       SPRING_DATASOURCE_URL: jdbc:mysql://servicedb:3306/servicedb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+#       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-east:8761/eureka
+#     links: 
+#       - eureka-east
+#       - servicedb
 
-  endpoints4:
-    build:
-      dockerfile: Service/Dockerfile
-      context: .
-    volumes:
-      - ./Service:/myapp
-    ports:
-      - "8094:8084"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://servicedb:3306/servicedb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-west:8761/eureka
-    links: 
-      - eureka-west
-      - servicedb
+#   endpoints4:
+#     build:
+#       dockerfile: Service/Dockerfile
+#       context: .
+#     volumes:
+#       - ./Service:/myapp
+#     ports:
+#       - "8094:8084"
+#     environment:
+#       SPRING_DATASOURCE_URL: jdbc:mysql://servicedb:3306/servicedb?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+#       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-west:8761/eureka
+#     links: 
+#       - eureka-west
+#       - servicedb
 
- #think about react dependence
-  songdb:
-    image: mysql:latest
-    cap_add:
-      - SYS_NICE  # CAP_SYS_NICE
-    security_opt:
-      - seccomp:unconfined
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: "songdb"
-      MYSQL_USER: "admin"
-      MYSQL_PASSWORD: "root"
-    restart: always
-    volumes:
-      - ./Songs/tmp/mysqldb:/var/lib/mysql
-    ports:
-      - "3386:3306"
+#   spring-social:
+#     build:
+#       dockerfile: spring-social/Dockerfile
+#       context: .
+#     volumes:
+#       - ./spring-social:/myapp
+#     ports:
+#       - "8089:8089"
+#     environment:
+#       SPRING_DATASOURCE_URL: jdbc:mysql://spring_social:3306/spring_social?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+      
+#     links: 
+#       - spring_social
 
+#  #think about react dependence
+#   songdb:
+#     image: mysql:latest
+#     cap_add:
+#       - SYS_NICE  # CAP_SYS_NICE
+#     security_opt:
+#       - seccomp:unconfined
+#     environment:
+#       MYSQL_ROOT_PASSWORD: root
+#       MYSQL_DATABASE: "songdb"
+#       MYSQL_USER: "admin"
+#       MYSQL_PASSWORD: "root"
+#     restart: always
+#     volumes:
+#       - ./Songs/tmp/mysqldb:/var/lib/mysql
+#     ports:
+#       - "3386:3306"
 
-  # songdb2:
-  #   image: mysql:latest
-  #   cap_add:
-  #     - SYS_NICE  # CAP_SYS_NICE
-  #   security_opt:
-  #     - seccomp:unconfined
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: root
-  #     MYSQL_DATABASE: "songdb2"
-  #     MYSQL_USER: "admin"
-  #     MYSQL_PASSWORD: "root"
-  #   restart: always
-  #   volumes:
-  #     - ./Songs/tmp/mysqldb:/var/lib/mysql
-  #   ports:
-  #     - "3386:3316"
+#   spring_social:
+#     image: mysql:latest
+#     cap_add:
+#       - SYS_NICE  # CAP_SYS_NICE
+#     security_opt:
+#       - seccomp:unconfined
+#     environment:
+#       MYSQL_ROOT_PASSWORD: root
+#       MYSQL_DATABASE: "spring_social"
+#       MYSQL_USER: "admin"
+#       MYSQL_PASSWORD: "root"
+#     restart: always
+#     volumes:
+#       - ./spring-social/tmp/mysqldb:/var/lib/mysql
+#     ports:
+#       - "3396:3306"
+
+#   # songdb2:
+#   #   image: mysql:latest
+#   #   cap_add:
+#   #     - SYS_NICE  # CAP_SYS_NICE
+#   #   security_opt:
+#   #     - seccomp:unconfined
+#   #   environment:
+#   #     MYSQL_ROOT_PASSWORD: root
+#   #     MYSQL_DATABASE: "songdb2"
+#   #     MYSQL_USER: "admin"
+#   #     MYSQL_PASSWORD: "root"
+#   #   restart: always
+#   #   volumes:
+#   #     - ./Songs/tmp/mysqldb:/var/lib/mysql
+#   #   ports:
+#   #     - "3386:3316"
   
-  tlsdb:
-    image: mysql:latest
-    cap_add:
-      - SYS_NICE  # CAP_SYS_NICE
-    security_opt:
-      - seccomp:unconfined
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: "tlsdb"
-      MYSQL_USER: "admin"
-      MYSQL_PASSWORD: "root"
-    volumes:
-      - ./Weather/tmp/mysqldb:/var/lib/mysql
-    ports:
-      - "3376:3306"
+#   tlsdb:
+#     image: mysql:latest
+#     cap_add:
+#       - SYS_NICE  # CAP_SYS_NICE
+#     security_opt:
+#       - seccomp:unconfined
+#     environment:
+#       MYSQL_ROOT_PASSWORD: root
+#       MYSQL_DATABASE: "tlsdb"
+#       MYSQL_USER: "admin"
+#       MYSQL_PASSWORD: "root"
+#     volumes:
+#       - ./Weather/tmp/mysqldb:/var/lib/mysql
+#     ports:
+#       - "3376:3306"
 
-  servicedb:
-    image: mysql:latest
-    cap_add:
-      - SYS_NICE  # CAP_SYS_NICE
-    security_opt:
-      - seccomp:unconfined
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: "servicedb"
-      MYSQL_USER: "admin"
-      MYSQL_PASSWORD: "root"
-    volumes:
-      - ./Service/tmp/mysqldb:/var/lib/mysql
-    ports:
-      - "3366:3307"
+#   servicedb:
+#     image: mysql:latest
+#     cap_add:
+#       - SYS_NICE  # CAP_SYS_NICE
+#     security_opt:
+#       - seccomp:unconfined
+#     environment:
+#       MYSQL_ROOT_PASSWORD: root
+#       MYSQL_DATABASE: "servicedb"
+#       MYSQL_USER: "admin"
+#       MYSQL_PASSWORD: "root"
+#     volumes:
+#       - ./Service/tmp/mysqldb:/var/lib/mysql
+#     ports:
+#       - "3366:3307"
 
       
  
